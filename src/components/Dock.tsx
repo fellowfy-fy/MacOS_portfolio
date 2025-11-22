@@ -52,7 +52,9 @@ const Dock = () => {
     };
   }, []);
 
-  const toggleApp = (app) => {};
+  const toggleApp = (app) => {
+    //TODO Implement Open Window Logic
+  };
 
   return (
     <section id="dock">
