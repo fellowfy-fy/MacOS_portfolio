@@ -73,6 +73,14 @@ const dockApps = [
     icon: "TimeMachine.png",
     canOpen: false,
   },
+  {
+    id: "calender",
+    name: "Calender", // was "Trash"
+    icon: "Calender.png",
+    canOpen: true,
+  },
+
+
 
 ];
 
@@ -500,6 +508,7 @@ const WINDOW_CONFIG = {
   resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+  calender: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
   imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
