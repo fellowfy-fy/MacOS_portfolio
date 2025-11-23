@@ -14,7 +14,8 @@ const navLinks = [
     name: "Resume",
     type: "resume",
   },
-];
+// keep literal types so `type` stays narrowed
+] as const;
 
 const navIcons = [
   {
