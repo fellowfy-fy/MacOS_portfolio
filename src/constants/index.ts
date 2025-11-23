@@ -70,7 +70,7 @@ const dockApps = [
   {
     id: "trash",
     name: "Archive", // was "Trash"
-    icon: "Trash_empty.png",
+    icon: "TimeMachine.png",
     canOpen: false,
   },
 
