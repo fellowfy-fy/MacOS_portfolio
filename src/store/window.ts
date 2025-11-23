@@ -12,7 +12,7 @@ type WindowConfig = {
   };
 };
 
-type WindowState = {
+export type WindowState = {
   windows: WindowConfig;
   nextZIndex: number;
   openWindow: (windowKey: WindowKey, data?: null) => void;
