@@ -1,12 +1,18 @@
 import gsap from "gsap";
-
-import { dockApps } from "#constants/index";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { Tooltip } from "react-tooltip";
 
+import { dockApps } from "#constants/index";
+import useWindowStore, { type WindowKey } from "#store/window";
+
+type DockApp = (typeof dockApps)[number] & { id: WindowKey };
+const dockAppList = dockApps as DockApp[];
+
 const Dock = () => {
   const dockRef = useRef<HTMLDivElement | null>(null);
+
+  const { openWindow, closeWindow, windows } = useWindowStore();
 
   useGSAP(() => {
     const dock = dockRef.current;
@@ -52,14 +58,24 @@ const Dock = () => {
     };
   }, []);
 
-  const toggleApp = (app) => {
-    //TODO Implement Open Window Logic
+  const toggleApp = (app: Pick<DockApp, "id" | "canOpen">) => {
+    if (!app.canOpen) return;
+
+    const window = windows[app.id];
+
+    if (!window) return;
+
+    if (window.isOpen) {
+      closeWindow(app.id);
+    } else {
+      openWindow(app.id);
+    }
   };
 
   return (
     <section id="dock">
       <div ref={dockRef} className="dock-container">
-        {dockApps.map(({ id, name, icon, canOpen }) => (
+        {dockAppList.map(({ id, name, icon, canOpen }) => (
           <div key={id} className="relative flex justify-center">
             <button
               type="button"

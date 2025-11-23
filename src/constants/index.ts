@@ -72,6 +72,7 @@ const dockApps = [
     icon: "trash.png",
     canOpen: false,
   },
+
 ];
 
 const blogPosts = [
